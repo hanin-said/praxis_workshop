@@ -186,8 +186,8 @@ jobs:
     environment:
       name: production
       url: https://hanin.praxis-form.de
-      env:
-        NAMESPACE: hanin-s
+    env:
+      NAMESPACE: hanin-s
     steps:
       - uses: actions/checkout@v4
       - name: install Helm
