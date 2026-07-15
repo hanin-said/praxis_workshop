@@ -1,0 +1,39 @@
+backend:
+  replicas: 2
+  image:
+    repo: ghcr.io/hanin-said/praxis-backend
+    tag: v0.1
+
+imagePullSecrets:
+  name: regcred
+
+frontend:
+  replicas: 2
+  image:
+    repo: ghcr.io/hanin-said/praxis_frontend
+    tag: v0.1
+  apiUrl: "https://hanin.praxis-form.de"
+
+#ingress:
+ # host: "hanin.praxis-form.de"
+
+grafana:
+  enabled: true
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    # Values can be templated
+    annotations:
+      nginx.ingress.kubernetes.io/ssl-redirect: "false"
+      nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
+
+    path: /
+    pathType: Prefix
+
+    hosts:
+      - grafana-hanin.praxis-form.de
+
+    tls:
+      - secretName: grafana-praxis-form-tls
+        hosts:
+          - grafana-hanin.praxis-form.de

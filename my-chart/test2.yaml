@@ -1,0 +1,19 @@
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  name: regcred
+  namespace: hanin-s
+spec:
+  encryptedData:
+    .dockerconfigjson: AgBlF6r946f1ZyVdItOJMhN7g7iN/BbaBo9t+B7AvZFfNC17wa8dqnPJDnT2iKzcivYVeTO/ZeQprICvXOowCEbmIRg74yHPVHVj4XDtJhX1NIL6vvWGVhGPLoJAX5pJozYmPc3Ov1eC3PqmoEGXProCQ9VE6/03lEf3dC3YMFJ1AFjznO6d7xdzoPNrOCkPzGmbr46nsX+oSWjeWiXLiHAUQ/0MgkBUsftGS+ILqvENW2Hef7p8J6qzDw/7HRHzD2gXfT+DCY06Z2SkOUiMhQkYhfCTbpTXMXHHmD1OBpSqQO8Vqp4V3w73Qbuu0h+zlsLQ9q3GcmzisJWkGgLTRuZbCL2P7KIdw3zhNVplrW3iEwHHWt37/g/G5MMCPpbhCyzhPj8t3VtOURoxLGRBO2NQ/814J4FhdReEhgaXt5eSgGcSKCsB6HRgDwrDD85GOzL+gs8skGlj/nabdIm5uxYQbCqOUXMA5tICQJXMSSLfGaqTbC9bGUCL1yyvrJkchPq8fLjOuoTzFfpYb/L2NpqojbAMXgZR9waFe3QjaQAwhyuyAeFep0pZXKH5hv3tzEutkmQS16a1sHXQd33GoGmsGDq2+v2g5dye0O1Uv6qytgRVx51PZyZ77n8dWawyS4jz7D5LHF40O/vmDUef6AllalJ/ZXlsgz5hmTD8Pu4FKGUZ1csIuP8J9+pDqqCdzTKKlSlsA0KHt6spXd6JU2M93+idOMF4eINgXCZHaiooOZzMimj7ZBB7xkOCywQq19IEahRglxSschw95pMh5HuZ6oPaiYdF4YlQeAwQYapvEP2dm8+H88WTbCIHelmLVwfFt2gF6H5BclSjgc/xLUgH+3JqCLS/jie1912uukk6bXEbeGqRg+1JCLKIsCb8ox0vIDWwxTC96ZmgVTtRBI1MS/1+SJkF0ad/ius=
+  template:
+    metadata:
+      annotations:
+        meta.helm.sh/release-name: hanin-praxis-form
+        meta.helm.sh/release-namespace: hanin-s
+      labels:
+        app.kubernetes.io/managed-by: Helm
+      name: regcred
+      namespace: hanin-s
+    type: kubernetes.io/dockerconfigjson

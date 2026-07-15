@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+  namespace: hanin
+  labels:
+    app: frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      imagePullSecrets:
+        - name: regcred
+      containers:
+      - name: frontend
+        image: ghcr.io/hanin-said/praxis_frontend:v0.1
+        imagePullPolicy: Always
+        env:
+          - name: API_URL
+            value: "https://hanin.praxis-form.de"
+        ports:
+        - containerPort: 80
